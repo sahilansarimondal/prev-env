@@ -12,7 +12,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       const { nextUrl } = request;
 
       // If logged in and on the login page, redirect to dashboard
-      if (isLoggedIn && nextUrl.pathname === "/login") {
+      if ((isLoggedIn && nextUrl.pathname === "/login") || "/") {
         return Response.redirect(new URL("/dashboard", nextUrl));
       }
 
