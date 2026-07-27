@@ -1,7 +1,13 @@
 import Link from "next/link";
-import { signIn } from "@/auth";
+import { auth, signIn } from "@/auth";
+import { redirect } from "next/navigation";
 
-export default function LoginPage() {
+export default async function LoginPage() {
+  const session = await auth();
+
+  // if (session?.user) {
+  //   redirect("/dashboard");
+  // }
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-zinc-50 px-4 dark:bg-black">
       <div className="w-full max-w-sm">
